@@ -1,0 +1,12 @@
+async function getClientesById(client_id) {
+  let { data, error } = await supabase
+    .rpc('public.get_clientes_by_id', { client_id });
+
+  if (error) {
+    console.error('Error fetching clientes by ID', error);
+  } else {
+    console.log('Clientes with ID', data);
+  }
+}
+
+getClientesById(3);  Ejemplo con ID 3
